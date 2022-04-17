@@ -1,0 +1,4 @@
+node_modules
+src/api/album/file
+.env
+package-lock.json

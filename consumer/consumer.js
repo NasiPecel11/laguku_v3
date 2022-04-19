@@ -3,7 +3,7 @@ require("dotenv").config();
 const amqp = require("amqplib");
 const PlaylistsService = require("./PlaylistsService");
 const MailSender = require("./MailSender");
-const Listener = require("./Listener");
+const Listener = require("./listener");
 
 const init = async () => {
   const playlistsService = new PlaylistsService();
@@ -18,6 +18,8 @@ const init = async () => {
   });
 
   channel.consume("export:playlist", listener.listen, { noAck: true });
+
+  console.log("Consumer is listening...");
 };
 
 init();

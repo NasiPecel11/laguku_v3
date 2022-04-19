@@ -10,7 +10,7 @@ const mapDBToModel = ({
   id,
   name,
   year,
-  coverUrl: cover,
+  coverUrl: cover ? cover : null,
   songs,
   createdAt: created_at,
   updatedAt: updated_at,

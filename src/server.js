@@ -165,7 +165,6 @@ const init = async () => {
       options: {
         service: userAlbumLikesService,
         albumService,
-        cacheService,
       },
     },
     {

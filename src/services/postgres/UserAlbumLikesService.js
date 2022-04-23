@@ -21,6 +21,8 @@ class UserAlbumLikesService {
       throw new NotFoundError("Likes gagal ditambahkan");
     }
 
+    await this._cacheService.delete(`album-id-likes:${albumId}`);
+
     return result.rows[0].id;
   }
 
@@ -41,7 +43,7 @@ class UserAlbumLikesService {
 
   async verifyLikes(userId, albumId) {
     const query = {
-      text: 'SELECT user_id FROM user_album_likes WHERE user_id = $1 AND album_id = $2',
+      text: "SELECT user_id FROM user_album_likes WHERE user_id = $1 AND album_id = $2",
       values: [userId, albumId],
     };
 

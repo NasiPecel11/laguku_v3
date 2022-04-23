@@ -1,10 +1,9 @@
 const ClientError = require("../../exceptions/ClientError");
 
 class UserAlbumLikesHandler {
-  constructor(service, albumService, cacheService) {
+  constructor(service, albumService) {
     this._service = service;
     this._albumService = albumService;
-    this._cacheService = cacheService;
 
     this.postAlbumLikesHandler = this.postAlbumLikesHandler.bind(this);
     this.getAlbumLikesByIdHandler = this.getAlbumLikesByIdHandler.bind(this);
